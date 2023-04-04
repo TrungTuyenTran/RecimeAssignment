@@ -22,4 +22,8 @@ class ListViewModel: ObservableObject {
     @Published var selection: String = "None"
     
     init() {}
+    
+    func arrange() -> [Food] {
+        data.sorted(by: { $0.position <= $1.position })
+    }
 }

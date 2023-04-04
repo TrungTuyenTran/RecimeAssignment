@@ -41,7 +41,7 @@ struct ListView: View {
                                     GridItem(.flexible())],
                           spacing: 15) {
                     Section( header: header) {
-                        ForEach(viewModel.data, id:\.self) { food in
+                        ForEach(viewModel.arrange(), id:\.self) { food in
                             ListItemView(widthItem: widthItem,
                                          heightImage: heightImage,
                                          food: food,
