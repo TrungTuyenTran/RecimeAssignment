@@ -50,19 +50,19 @@ struct ListView: View {
                     }
                     
                 }
-                          .toolbar {
-                              Button("Filter") {
-                                  showingOptions = true
-                              }
-                          }
-                          .navigationBarTitle("Recipes", displayMode: .inline)
-                          .padding(20)
+                .toolbar {
+                    Button("Filter") {
+                        showingOptions = true
+                    }
+                }
+                .navigationBarTitle("Recipes", displayMode: .inline)
+                .padding(20)
             }
             .alert(viewModel.errorTitle,
                    isPresented: $viewModel.errorAlertPresenting,
                    actions: {
-                Button("OK", role: .cancel) { }
-            },
+                        Button("OK", role: .cancel) { }
+                   },
                    message: {
                 Text(viewModel.errorMessage)
             })
