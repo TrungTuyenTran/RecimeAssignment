@@ -25,8 +25,8 @@ class ListViewModel: ObservableObject, IAlertState {
     private var repository: IFoodRepository
     private var cancellables: Set<AnyCancellable>
     
-    init() {
-        repository = FoodRepository()
+    init(repository: IFoodRepository) {
+        self.repository = repository
         errorTitle = ""
         errorMessage = ""
         errorAlertPresenting = false

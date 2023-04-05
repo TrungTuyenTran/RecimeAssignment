@@ -15,8 +15,8 @@ class FoodRepository: IFoodRepository {
     private var services: IJSONServices
     private var cancellables: Set<AnyCancellable>
     
-    init() {
-        services = JSONFileServices()
+    init(service: IJSONServices) {
+        self.services = service
         cancellables = Set<AnyCancellable>()
     }
     

@@ -16,7 +16,7 @@ struct ReciMeAssignmentApp: App {
     }
     
     func createViewModel() -> ListViewModel {
-        let viewModel = ListViewModel()
+        let viewModel = ListViewModel(repository: FoodRepository(service: JSONFileServices()))
         viewModel.updateCallback()
         return viewModel
     }

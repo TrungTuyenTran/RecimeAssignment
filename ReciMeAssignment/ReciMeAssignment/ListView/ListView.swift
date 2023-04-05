@@ -90,6 +90,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(viewModel: ListViewModel())
+        ListView(viewModel: ListViewModel(repository: FoodRepository(service: JSONFileServices())))
     }
 }
