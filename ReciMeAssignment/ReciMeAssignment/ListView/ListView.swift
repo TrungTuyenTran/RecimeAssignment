@@ -58,7 +58,7 @@ struct ListView: View {
                           .navigationBarTitle("Recipes", displayMode: .inline)
                           .padding(20)
             }
-            .confirmationDialog("Difficulty", isPresented: $showingOptions, actions: {
+            .confirmationDialog("Difficulty", isPresented: $showingOptions, titleVisibility: .visible, actions: {
                 Button("Easy") {
                     viewModel.selection = "Easy"
                 }
@@ -70,11 +70,11 @@ struct ListView: View {
                 Button("Hard") {
                     viewModel.selection = "Hard"
                 }
-                Button("All levels") {
-                    viewModel.selection = "All levels"
+                Button("Cancel", role: .cancel) {
+                    viewModel.selection = "None"
                 }
             }, message: {
-                Text("Difficulty")
+                Text("You can filter recipes by difficulty")
             })
         }
     }

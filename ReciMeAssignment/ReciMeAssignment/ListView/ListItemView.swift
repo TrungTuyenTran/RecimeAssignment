@@ -16,7 +16,7 @@ struct ListItemView: View {
     var body: some View {
         ZStack {
             VStack {
-                AsyncImage(url: URL(string: food.image)) { image in
+                AsyncImage(url: URL(string: food.imageUrl)) { image in
                     image
                         .resizable()
                         .scaledToFill()

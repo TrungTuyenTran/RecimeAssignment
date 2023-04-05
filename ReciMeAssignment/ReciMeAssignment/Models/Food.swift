@@ -11,5 +11,5 @@ struct Food: Codable, Hashable {
     let name: String
     let level: String
     let position: Int
-    let image: String
+    let imageUrl: String
 }
