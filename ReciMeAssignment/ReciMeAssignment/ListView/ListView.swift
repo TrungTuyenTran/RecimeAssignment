@@ -58,6 +58,14 @@ struct ListView: View {
                           .navigationBarTitle("Recipes", displayMode: .inline)
                           .padding(20)
             }
+            .alert(viewModel.errorTitle,
+                   isPresented: $viewModel.errorAlertPresenting,
+                   actions: {
+                Button("OK", role: .cancel) { }
+            },
+                   message: {
+                Text(viewModel.errorMessage)
+            })
             .confirmationDialog("Difficulty", isPresented: $showingOptions, titleVisibility: .visible, actions: {
                 Button("Easy") {
                     viewModel.selection = "Easy"

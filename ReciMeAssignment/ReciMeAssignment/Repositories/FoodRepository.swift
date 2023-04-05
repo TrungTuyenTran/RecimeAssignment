@@ -12,8 +12,13 @@ protocol IFoodRepository: AnyObject {
 }
 
 class FoodRepository: IFoodRepository {
-    private var services: IJSONServices?
-    private var cancellables = Set<AnyCancellable>()
+    private var services: IJSONServices
+    private var cancellables: Set<AnyCancellable>
+    
+    init() {
+        services = JSONFileServices()
+        cancellables = Set<AnyCancellable>()
+    }
     
     @discardableResult
     func listFoods() -> AnyPublisher<[Food], Error> {
@@ -21,11 +26,11 @@ class FoodRepository: IFoodRepository {
             guard let self = self else { return }
             Task.detached(priority: .userInitiated) { [weak self] in
                 guard let self = self else { return }
-                self.services?.get([Food].self, from: "data.json")
+                self.services.get([Food].self, from: "data")
                     .sink { completion in
                         switch completion {
                         case .failure(let error):
-                            print("[DEBUG] Error: \(error)")
+                            promise(.failure(error))
                         case .finished:
                             print("[DEBUG] Finished")
                         }

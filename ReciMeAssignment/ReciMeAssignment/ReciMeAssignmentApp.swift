@@ -11,7 +11,13 @@ import SwiftUI
 struct ReciMeAssignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ListView(viewModel: ListViewModel())
+            ListView(viewModel: createViewModel())
         }
+    }
+    
+    func createViewModel() -> ListViewModel {
+        let viewModel = ListViewModel()
+        viewModel.updateCallback()
+        return viewModel
     }
 }

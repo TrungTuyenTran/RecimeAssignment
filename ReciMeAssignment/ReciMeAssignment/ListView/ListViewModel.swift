@@ -5,25 +5,63 @@
 //  Created by Tran Tuyen on 04/04/2023.
 //
 
-import UIKit
+import Combine
 
-class ListViewModel: ObservableObject {
+protocol IAlertState {
+    var errorTitle: String { get }
+    var errorMessage: String { get }
+    var errorAlertPresenting: Bool { get }
     
-    @Published var data: [Food] = [Food(name: "Food A", level: "Easy", position: 1, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food B", level: "Medium", position: 3, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food C", level: "Easy", position: 2, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food D", level: "Hard", position: 5, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food E", level: "Medium", position: 4, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food F", level: "Medium", position: 6, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food G", level: "Hard", position: 7, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food H", level: "Easy", position: 9, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food I", level: "Hard", position: 8, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"),
-                                   Food(name: "Food K", level: "Medium", position: 10, imageUrl: "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg")]
-    @Published var selection: String = "None"
+    func showAlert(title: String, message: String)
+}
+
+class ListViewModel: ObservableObject, IAlertState {
+    @Published var errorTitle: String
+    @Published var errorMessage: String
+    @Published var errorAlertPresenting: Bool
+    @Published var data: [Food]
+    @Published var selection: String
     
-    init() {}
+    private var repository: IFoodRepository
+    private var cancellables: Set<AnyCancellable>
+    
+    init() {
+        repository = FoodRepository()
+        errorTitle = ""
+        errorMessage = ""
+        errorAlertPresenting = false
+        data = []
+        selection = "None"
+        cancellables = Set<AnyCancellable>()
+    }
+    
+    func updateCallback() {
+        repository.listFoods()
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                switch completion {
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: error.localizedDescription)
+                default:
+                    break
+                }
+            } receiveValue: { foods in
+                Task { @MainActor in
+                    self.data = foods
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     func arrange() -> [Food] {
         data.sorted(by: { $0.position <= $1.position })
+    }
+    
+    func showAlert(title: String, message: String) {
+        Task { @MainActor in
+            self.errorTitle = title
+            self.errorMessage = message
+            self.errorAlertPresenting = true
+        }
     }
 }
