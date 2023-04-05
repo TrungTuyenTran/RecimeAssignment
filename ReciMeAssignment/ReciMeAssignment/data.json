@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "name": "Vegan burger",
+      "level": "Medium",
+      "position": 1,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Chicken burger",
+      "level": "Easy",
+      "position": 3,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Beef burger",
+      "level": "Easy",
+      "position": 2,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Breakfast burger",
+      "level": "Medium",
+      "position": 5,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Wild salmon burger",
+      "level": "Easy",
+      "position": 4,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Bean burger",
+      "level": "Hard",
+      "position": 6,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Cheeseburger",
+      "level": "Hard",
+      "position": 7,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Turkey burger",
+      "level": "Medium",
+      "position": 9,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Mushroom burger",
+      "level": "Easy",
+      "position": 8,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    },
+    {
+      "name": "Elk burger",
+      "level": "Easy",
+      "position": 10,
+      "imageUrl": "https://ddg0cip9uom1w.cloudfront.net/code-challenge/burger.jpg"
+    }
+  ]
+}
