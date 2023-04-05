@@ -12,6 +12,9 @@
 		852080C329DCE44B00FADE5B /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852080C229DCE44B00FADE5B /* ListItemView.swift */; };
 		852080C629DCE6A200FADE5B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852080C529DCE6A200FADE5B /* Food.swift */; };
 		852080C829DCF34900FADE5B /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 852080C729DCF34900FADE5B /* data.json */; };
+		852080CB29DCF52800FADE5B /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852080CA29DCF52800FADE5B /* FoodRepository.swift */; };
+		852080CE29DCF58D00FADE5B /* JSONServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852080CD29DCF58D00FADE5B /* JSONServices.swift */; };
+		852080D029DCF75500FADE5B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852080CF29DCF75500FADE5B /* ResponseModel.swift */; };
 		85CB0E2129DBD2F90007E83C /* ReciMeAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB0E2029DBD2F90007E83C /* ReciMeAssignmentApp.swift */; };
 		85CB0E2329DBD2F90007E83C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CB0E2229DBD2F90007E83C /* ListView.swift */; };
 		85CB0E2529DBD2FB0007E83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CB0E2429DBD2FB0007E83C /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		852080C229DCE44B00FADE5B /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		852080C529DCE6A200FADE5B /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		852080C729DCF34900FADE5B /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		852080CA29DCF52800FADE5B /* FoodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
+		852080CD29DCF58D00FADE5B /* JSONServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONServices.swift; sourceTree = "<group>"; };
+		852080CF29DCF75500FADE5B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		85CB0E1D29DBD2F90007E83C /* ReciMeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReciMeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CB0E2029DBD2F90007E83C /* ReciMeAssignmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciMeAssignmentApp.swift; sourceTree = "<group>"; };
 		85CB0E2229DBD2F90007E83C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -103,8 +109,25 @@
 			isa = PBXGroup;
 			children = (
 				852080C529DCE6A200FADE5B /* Food.swift */,
+				852080CF29DCF75500FADE5B /* ResponseModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		852080C929DCF50300FADE5B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				852080CA29DCF52800FADE5B /* FoodRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		852080CC29DCF57B00FADE5B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				852080CD29DCF58D00FADE5B /* JSONServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		85CB0E1429DBD2F90007E83C = {
@@ -133,6 +156,8 @@
 				852080BF29DCDC1B00FADE5B /* Extensions */,
 				851D4B0F29DC8758005BB40A /* ListView */,
 				852080C429DCE69100FADE5B /* Models */,
+				852080C929DCF50300FADE5B /* Repositories */,
+				852080CC29DCF57B00FADE5B /* Services */,
 				85CB0E2029DBD2F90007E83C /* ReciMeAssignmentApp.swift */,
 				85CB0E2429DBD2FB0007E83C /* Assets.xcassets */,
 				85CB0E2629DBD2FB0007E83C /* Preview Content */,
@@ -298,8 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				852080C329DCE44B00FADE5B /* ListItemView.swift in Sources */,
+				852080D029DCF75500FADE5B /* ResponseModel.swift in Sources */,
+				852080CE29DCF58D00FADE5B /* JSONServices.swift in Sources */,
 				85CB0E2329DBD2F90007E83C /* ListView.swift in Sources */,
 				85CB0E2129DBD2F90007E83C /* ReciMeAssignmentApp.swift in Sources */,
+				852080CB29DCF52800FADE5B /* FoodRepository.swift in Sources */,
 				852080C129DCDC3200FADE5B /* View+Extensions.swift in Sources */,
 				851D4B1129DC8790005BB40A /* ListViewModel.swift in Sources */,
 				852080C629DCE6A200FADE5B /* Food.swift in Sources */,
